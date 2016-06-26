@@ -1,0 +1,75 @@
+version: 1.0.{build}
+
+branches:
+  only:
+    - master
+
+
+# Do not build on tags (GitHub only)
+skip_tags: true
+
+#---------------------------------#
+#    environment configuration    #
+#---------------------------------#
+
+shallow_clone: true
+
+matrix:
+  fast_finish: true
+
+platform:
+  - x86
+
+configuration:
+  - Release
+
+environment:
+  BINW32_PATH: '%APPVEYOR_BUILD_FOLDER%\..\binw32'
+  PPDIR: '%APPVEYOR_BUILD_FOLDER%\..\newpascal\fpc\bin\i386-win32'
+  BINW32_DL:
+    secure: 638jQ7/uOvgtb2oIeUqEe/6/wQXnTX5Y4M5gGYkz8jE=
+  DOWNLOAD_DL:
+    secure: 638jQ7/uOvgtb2oIeUqEe72ey8I4fjo+lYPFvsTkFgmOmHBa3d5sOasKHpLTgYYH
+  SPARTA_RUN_DL:
+    secure: 638jQ7/uOvgtb2oIeUqEezoCBnOXZnbVINHjqWMNBwU=
+
+
+install:
+  - rm appveyor.yml
+  - appveyor DownloadFile %BINW32_DL%
+  - 7z x binw32.7z -o%APPVEYOR_BUILD_FOLDER%\newpascal -y  
+  - npm install github
+  - npm install download
+  - npm install unzip
+  - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download.js
+  - node download.js
+
+build_script:
+  - appveyor DownloadFile %SPARTA_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
+  - move %APPVEYOR_BUILD_FOLDER%\newpascal %APPVEYOR_BUILD_FOLDER%\newpascalpack
+
+after_build:
+  - 7z a -tzip newpascalpack.zip %APPVEYOR_BUILD_FOLDER%\newpascalpack
+  
+artifacts:
+  - path: newpascalpack.zip
+    name: newpascalpack
+
+deploy:
+  release: newpascalpack-v$(appveyor_build_version)
+  description: 'Release of NewPascal Pack'
+  provider: GitHub
+  auth_token:
+    secure: hciZXDslu8epZhwmm/LfiZBmhbPk7BPpLd/3MOtst/uIRw2LPeAEMCXmBFikJzxQ
+  artifact: newpascalpack
+  draft: false
+  prerelease: false
+  on:
+    branch: master                 # release from master branch only
+    appveyor_repo_tag: false       # ?deploy on tag push only
+
+#---------------------------------#
+#     deployment configuration    #
+#---------------------------------#
+
+# deploy: off
