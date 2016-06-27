@@ -46,6 +46,7 @@ install:
 
 build_script:
   - appveyor DownloadFile %SPARTA_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
+  - move %APPVEYOR_BUILD_FOLDER%\newpascal\sparta %APPVEYOR_BUILD_FOLDER%\newpascal\lazarus
   - move %APPVEYOR_BUILD_FOLDER%\newpascal %APPVEYOR_BUILD_FOLDER%\newpascalpack
 
 after_build:
