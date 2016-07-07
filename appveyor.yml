@@ -26,13 +26,9 @@ configuration:
 environment:
   BINW32_PATH: '%APPVEYOR_BUILD_FOLDER%\..\binw32'
   PPDIR: '%APPVEYOR_BUILD_FOLDER%\..\newpascal\fpc\bin\i386-win32'
-  BINW32_DL:
-    secure: 638jQ7/uOvgtb2oIeUqEe/6/wQXnTX5Y4M5gGYkz8jE=
-  DOWNLOAD_DL:
-    secure: 638jQ7/uOvgtb2oIeUqEe72ey8I4fjo+lYPFvsTkFgmOmHBa3d5sOasKHpLTgYYH
-  SPARTA_RUN_DL:
-    secure: 638jQ7/uOvgtb2oIeUqEezoCBnOXZnbVINHjqWMNBwU=
-
+  BINW32_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/binw32.7z'
+  DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4newpascalpack.js'
+  SPARTA_RUN_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/run.bat'
 
 install:
   - rm appveyor.yml
@@ -41,8 +37,8 @@ install:
   - npm install github
   - npm install download
   - npm install unzip
-  - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download.js
-  - node download.js
+  - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4newpascalpack.js
+  - node download4newpascalpack.js
 
 build_script:
   - appveyor DownloadFile %SPARTA_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
