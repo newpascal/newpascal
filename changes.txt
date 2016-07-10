@@ -1,1 +1,2 @@
+* New release with important patch for managed fields for records
 * more transparent build process
