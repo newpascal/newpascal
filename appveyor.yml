@@ -30,7 +30,9 @@ environment:
   DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4newpascalpack.js'
   SPARTA_RUN_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/run.bat'
   NP_CONFIGURE_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/configure4pack.bat'
+  NPCFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/np.cft'
   CCR_DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4ccr.js'
+  CREATE_CFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/createctf.js'
 
 install:
   - rm appveyor.yml
@@ -39,13 +41,18 @@ install:
   - npm install github
   - npm install download
   - npm install unzip
-  - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4newpascalpack.js
-  - node download4newpascalpack.js
+  - npm install concat-files
 
 build_script:
+  - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4newpascalpack.js
+  - node download4newpascalpack.js
   - del %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %NP_CONFIGURE_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %SPARTA_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
+
+  - appveyor DownloadFile %NPCFT_DL% -FileName %APPVEYOR_BUILD_FOLDER%\np.cft
+  - appveyor DownloadFile %CREATE_CFT_DL% -FileName %APPVEYOR_BUILD_FOLDER%\createctf.js
+  - node createctf.js
 
   - appveyor DownloadFile %CCR_DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4ccr.js
   - node download4ccr.js

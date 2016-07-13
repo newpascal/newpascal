@@ -1,4 +1,11 @@
+=== 13.07.2016 ===
+* np.cft template moved to newpascalpack from newpascal repository
+* Reorder for build and install section
 * Improved configure.bat for ccr purposes
 * Include mORMot library and Generics.Collections
+
+=== 10.07.2016 ===
 * New release with important patch for managed fields for records
-* more transparent build process
+
+=== 07.07.2016 ===
+* More transparent build process
