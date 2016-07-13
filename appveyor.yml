@@ -32,6 +32,7 @@ environment:
   NP_CONFIGURE_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/configure4pack.bat'
   NPCFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/np.cft'
   CCR_DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4ccr.js'
+  CCRBIN_DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4ccrbin.js'
   CREATE_CFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/createctf.js'
 
 install:
@@ -59,6 +60,8 @@ build_script:
   - md %APPVEYOR_BUILD_FOLDER%\newpascal\ccr
   - move %APPVEYOR_BUILD_FOLDER%\generics.collections\latest %APPVEYOR_BUILD_FOLDER%\newpascal\ccr\generics.collections
   - move %APPVEYOR_BUILD_FOLDER%\mORMot\latest %APPVEYOR_BUILD_FOLDER%\newpascal\ccr\mORMot
+  - appveyor DownloadFile %CCRBIN_DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4ccrbin.js
+  - node download4ccrbin.js
 
   - move %APPVEYOR_BUILD_FOLDER%\newpascal\sparta %APPVEYOR_BUILD_FOLDER%\newpascal\lazarus
   - move %APPVEYOR_BUILD_FOLDER%\newpascal %APPVEYOR_BUILD_FOLDER%\newpascalpack
