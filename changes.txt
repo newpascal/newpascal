@@ -1,4 +1,5 @@
 === 13.07.2016 ===
+* Adding missing binaries from previous point :P (sqlite3 object files for FPC)
 * mORMot binaries (sqlite3 object files for FPC) 
 * np.cft template moved to newpascalpack from newpascal repository
 * Reorder for build and install section
