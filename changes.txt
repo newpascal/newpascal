@@ -1,2 +1,4 @@
+* Improved configure.bat for ccr purposes
+* Include mORMot library and Generics.Collections
 * New release with important patch for managed fields for records
 * more transparent build process

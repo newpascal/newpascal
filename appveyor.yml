@@ -29,6 +29,8 @@ environment:
   BINW32_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/binw32.7z'
   DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4newpascalpack.js'
   SPARTA_RUN_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/run.bat'
+  NP_CONFIGURE_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/configure4pack.bat'
+  CCR_DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4ccr.js'
 
 install:
   - rm appveyor.yml
@@ -41,7 +43,16 @@ install:
   - node download4newpascalpack.js
 
 build_script:
+  - del %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
+  - appveyor DownloadFile %NP_CONFIGURE_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %SPARTA_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
+
+  - appveyor DownloadFile %CCR_DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4ccr.js
+  - node download4ccr.js
+  - md %APPVEYOR_BUILD_FOLDER%\newpascal\ccr
+  - move %APPVEYOR_BUILD_FOLDER%\generics.collections\latest %APPVEYOR_BUILD_FOLDER%\newpascal\ccr\generics.collections
+  - move %APPVEYOR_BUILD_FOLDER%\mORMot\latest %APPVEYOR_BUILD_FOLDER%\newpascal\ccr\mORMot
+
   - move %APPVEYOR_BUILD_FOLDER%\newpascal\sparta %APPVEYOR_BUILD_FOLDER%\newpascal\lazarus
   - move %APPVEYOR_BUILD_FOLDER%\newpascal %APPVEYOR_BUILD_FOLDER%\newpascalpack
 
