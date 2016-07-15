@@ -1,3 +1,6 @@
+=== 15.07.2016 ===
+* Important update for JITForms (breaking change for JITForms in FPC trunk r34087)
+
 === 13.07.2016 ===
 * Adding missing binaries from previous point :P (sqlite3 object files for FPC)
 * mORMot binaries (sqlite3 object files for FPC) 
