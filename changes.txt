@@ -1,3 +1,7 @@
+=== 02.08.2016 ===
+* Generics.Collections as official FPC package rtl-generics
+* Many internal changes for FPC classes structure
+
 === 13.07.2016 ===
 * Adding missing binaries from previous point :P (sqlite3 object files for FPC)
 * mORMot binaries (sqlite3 object files for FPC) 

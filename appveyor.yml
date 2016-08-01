@@ -58,7 +58,7 @@ build_script:
   - appveyor DownloadFile %CCR_DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4ccr.js
   - node download4ccr.js
   - md %APPVEYOR_BUILD_FOLDER%\newpascal\ccr
-  - move %APPVEYOR_BUILD_FOLDER%\generics.collections\latest %APPVEYOR_BUILD_FOLDER%\newpascal\ccr\generics.collections
+#  - move %APPVEYOR_BUILD_FOLDER%\generics.collections\latest %APPVEYOR_BUILD_FOLDER%\newpascal\ccr\generics.collections
   - move %APPVEYOR_BUILD_FOLDER%\mORMot\latest %APPVEYOR_BUILD_FOLDER%\newpascal\ccr\mORMot
   - appveyor DownloadFile %CCRBIN_DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4ccrbin.js
   - node download4ccrbin.js
@@ -80,7 +80,7 @@ deploy:
   auth_token:
     secure: hciZXDslu8epZhwmm/LfiZBmhbPk7BPpLd/3MOtst/uIRw2LPeAEMCXmBFikJzxQ
   artifact: newpascalpack
-  draft: false
+  draft: true
   prerelease: false
   on:
     branch: master                 # release from master branch only
