@@ -1,3 +1,7 @@
+=== 02.08.2016 ===
+* Generics.Collections as official FPC package rtl-generics
+* Many internal changes for FPC classes structure
+
 === 15.07.2016 ===
 * Important update for JITForms (breaking change for JITForms in FPC trunk r34087)
 
