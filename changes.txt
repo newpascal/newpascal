@@ -1,3 +1,10 @@
+=== 21.08.2016 ===
+* New rtl-generics TThreadList<T> implementation
+* Breaking changes in mORMot (renamed all HTML_* constants as HTTP_*)
+* New binaries (object files) for mORMot
+* Important updates for new RTTI layout for FPC (Sven modifications)
+* Remove useless comments like { private declarations } from class skeletons for Lazarus (IMO baaaad idea :P) and many other changes
+
 === 02.08.2016 ===
 * Generics.Collections as official FPC package rtl-generics
 * Many internal changes for FPC classes structure
