@@ -35,9 +35,6 @@ environment:
   CCRBIN_DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4ccrbin.js'
   CREATE_CFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/createctf.js'
 
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
-
 install:
   - rm appveyor.yml
   - appveyor DownloadFile %BINW32_DL%
@@ -88,9 +85,6 @@ deploy:
   on:
     branch: master                 # release from master branch only
     appveyor_repo_tag: false       # ?deploy on tag push only
-
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 #---------------------------------#
 #     deployment configuration    #
