@@ -82,7 +82,8 @@ artifacts:
     name: newpascal
 
 deploy:
-  release: newpascal-v$(appveyor_build_version)
+  tag: np-v$(appveyor_build_version)
+  release: 'NewPascal v$(appveyor_build_version)'
   description: 'Release of NewPascal'
   provider: GitHub
   auth_token:
