@@ -36,8 +36,8 @@ environment:
   CREATE_CFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/createctf.js'
 
 # debug rdp 
-init:
-  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#init:
+#  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 install:
   - rm appveyor.yml
@@ -74,8 +74,8 @@ after_build:
   - 7z a -tzip newpascal.zip %APPVEYOR_BUILD_FOLDER%\newpascal
 
 # debug rdp 
-on_finish:
-  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+#on_finish:
+#  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 artifacts:
   - path: newpascal.zip
