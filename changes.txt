@@ -1,3 +1,13 @@
+=== 20.09.2016 ===
+* All projects moved to new organization (from dathox to newpascal)
+* Rename newpascal to freepascal
+* Rename sparta to lazarus
+* Rename newpascalpack to newpascal
+* Fix for "compiler picks up wrong Self for class method variables" (mantis #29491 by Jonas)
+* Fix for Wrong BeforeDestruction triggering (mantis #30570 by Jonas)
+* (compass) Improved Implicit/Explicit class operators for generics.
+* many other bug fixes :)
+
 === 21.08.2016 ===
 * New rtl-generics TThreadList<T> implementation
 * Breaking changes in mORMot (renamed all HTML_* constants as HTTP_*)
@@ -6,7 +16,7 @@
 * Remove useless comments like { private declarations } from class skeletons for Lazarus (IMO baaaad idea :P) and many other changes
 
 === 02.08.2016 ===
-* Generics.Collections as official FPC package rtl-generics
+* (compass) Generics.Collections as official FPC package rtl-generics
 * Many internal changes for FPC classes structure
 
 === 15.07.2016 ===

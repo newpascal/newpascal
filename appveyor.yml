@@ -27,8 +27,8 @@ environment:
   BINW32_PATH: '%APPVEYOR_BUILD_FOLDER%\..\binw32'
   PPDIR: '%APPVEYOR_BUILD_FOLDER%\..\newpascal\fpc\bin\i386-win32'
   BINW32_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/binw32.7z'
-  DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4newpascalpack.js'
-  SPARTA_RUN_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/run.bat'
+  DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4newpascal.js'
+  LAZARUS_RUN_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/run.bat'
   NP_CONFIGURE_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/configure4pack.bat'
   NPCFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/np.cft'
   CCR_DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4ccr.js'
@@ -45,11 +45,12 @@ install:
   - npm install concat-files
 
 build_script:
-  - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4newpascalpack.js
-  - node download4newpascalpack.js
+  - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4newpascal.js
+  - node download4newpascal.js
+  - move %APPVEYOR_BUILD_FOLDER%\freepascal %APPVEYOR_BUILD_FOLDER%\newpascal
   - del %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %NP_CONFIGURE_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
-  - appveyor DownloadFile %SPARTA_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
+  - appveyor DownloadFile %LAZARUS_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
 
   - appveyor DownloadFile %NPCFT_DL% -FileName %APPVEYOR_BUILD_FOLDER%\np.cft
   - appveyor DownloadFile %CREATE_CFT_DL% -FileName %APPVEYOR_BUILD_FOLDER%\createctf.js
@@ -63,23 +64,20 @@ build_script:
   - appveyor DownloadFile %CCRBIN_DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4ccrbin.js
   - node download4ccrbin.js
 
-  - move %APPVEYOR_BUILD_FOLDER%\newpascal\sparta %APPVEYOR_BUILD_FOLDER%\newpascal\lazarus
-  - move %APPVEYOR_BUILD_FOLDER%\newpascal %APPVEYOR_BUILD_FOLDER%\newpascalpack
-
 after_build:
-  - 7z a -tzip newpascalpack.zip %APPVEYOR_BUILD_FOLDER%\newpascalpack
+  - 7z a -tzip newpascal.zip %APPVEYOR_BUILD_FOLDER%\newpascal
   
 artifacts:
-  - path: newpascalpack.zip
-    name: newpascalpack
+  - path: newpascal.zip
+    name: newpascal
 
 deploy:
-  release: newpascalpack-v$(appveyor_build_version)
-  description: 'Release of NewPascal Pack'
+  release: newpascal-v$(appveyor_build_version)
+  description: 'Release of NewPascal'
   provider: GitHub
   auth_token:
-    secure: hciZXDslu8epZhwmm/LfiZBmhbPk7BPpLd/3MOtst/uIRw2LPeAEMCXmBFikJzxQ
-  artifact: newpascalpack
+    secure: 0zjNX5MmwwPNlCpgGKHe44W2flr5RdJm1uqe7poKPfnUDQYXzpgGOVPTU7pLVY0s
+  artifact: newpascal
   draft: true
   prerelease: false
   on:
