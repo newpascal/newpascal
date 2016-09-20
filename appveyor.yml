@@ -51,7 +51,7 @@ install:
 build_script:
   - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4newpascal.js
   - node download4newpascal.js
-  - move %APPVEYOR_BUILD_FOLDER%\freepascal %APPVEYOR_BUILD_FOLDER%\newpascal
+  - move freepascal newpascal
   - del %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %NP_CONFIGURE_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %LAZARUS_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
