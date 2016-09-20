@@ -41,8 +41,6 @@ init:
 
 install:
   - rm appveyor.yml
-  - appveyor DownloadFile %BINW32_DL%
-  - 7z x binw32.7z -o%APPVEYOR_BUILD_FOLDER%\newpascal -y  
   - npm install github
   - npm install download
   - npm install unzip
@@ -51,10 +49,14 @@ install:
 build_script:
   - appveyor DownloadFile %DOWNLOAD_DL% -FileName %APPVEYOR_BUILD_FOLDER%\download4newpascal.js
   - node download4newpascal.js
-  - move freepascal newpascal
+  - move %APPVEYOR_BUILD_FOLDER%\freepascal %APPVEYOR_BUILD_FOLDER%\newpascal
   - del %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %NP_CONFIGURE_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\configure.bat
   - appveyor DownloadFile %LAZARUS_RUN_DL% -FileName %APPVEYOR_BUILD_FOLDER%\newpascal\run.bat
+
+# !important - download this after move command freepascal -> newpascal
+  - appveyor DownloadFile %BINW32_DL%
+  - 7z x binw32.7z -o%APPVEYOR_BUILD_FOLDER%\newpascal -y  
 
   - appveyor DownloadFile %NPCFT_DL% -FileName %APPVEYOR_BUILD_FOLDER%\np.cft
   - appveyor DownloadFile %CREATE_CFT_DL% -FileName %APPVEYOR_BUILD_FOLDER%\createctf.js
