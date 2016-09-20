@@ -35,6 +35,10 @@ environment:
   CCRBIN_DOWNLOAD_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/download4ccrbin.js'
   CREATE_CFT_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/createctf.js'
 
+# debug rdp 
+init:
+  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 install:
   - rm appveyor.yml
   - appveyor DownloadFile %BINW32_DL%
@@ -66,7 +70,11 @@ build_script:
 
 after_build:
   - 7z a -tzip newpascal.zip %APPVEYOR_BUILD_FOLDER%\newpascal
-  
+
+# debug rdp 
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
+
 artifacts:
   - path: newpascal.zip
     name: newpascal
