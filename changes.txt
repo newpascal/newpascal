@@ -1,3 +1,8 @@
+=== 22.10.2016 ===
+* Very very important for the mORMot: our ORM now works with -O1, -O2 and -O3 on i386 with Florian changes.
+* (compass #7) Better calculating "distance" for methods with default parameter.
+* (compass #8) Better handling of "record" constraint for handling nilable types.
+* (compass #6) Management operators
 === 20.09.2016 ===
 * All projects moved to new organization (from dathox to newpascal)
 * Rename newpascal to freepascal
@@ -5,7 +10,7 @@
 * Rename newpascalpack to newpascal
 * Fix for "compiler picks up wrong Self for class method variables" (mantis #29491 by Jonas)
 * Fix for Wrong BeforeDestruction triggering (mantis #30570 by Jonas)
-* (compass) Improved Implicit/Explicit class operators for generics.
+* (compass #3) Improved Implicit/Explicit class operators for generics.
 * many other bug fixes :)
 
 === 21.08.2016 ===
@@ -16,7 +21,7 @@
 * Remove useless comments like { private declarations } from class skeletons for Lazarus (IMO baaaad idea :P) and many other changes
 
 === 02.08.2016 ===
-* (compass) Generics.Collections as official FPC package rtl-generics
+* (compass #1) Generics.Collections as official FPC package rtl-generics
 * Many internal changes for FPC classes structure
 
 === 15.07.2016 ===
