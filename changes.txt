@@ -3,6 +3,7 @@
 * (compass #7) Better calculating "distance" for methods with default parameter.
 * (compass #8) Better handling of "record" constraint for handling nilable types.
 * (compass #6) Management operators
+
 === 20.09.2016 ===
 * All projects moved to new organization (from dathox to newpascal)
 * Rename newpascal to freepascal
