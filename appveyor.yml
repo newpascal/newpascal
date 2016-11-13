@@ -2,8 +2,6 @@ version: 1.0.{build}
 
 branches:
   only:
-    - release
-  except:
     - master
 
 # Do not build on tags (GitHub only)
