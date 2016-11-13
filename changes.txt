@@ -1,3 +1,10 @@
+=== 13.11.2016 ===
+* Optmizations for Inc/Dec/Succ/Pred
+* pas2jni updates
+* Bug fixes for fcl-passrc package
+* Bug fixes for fcl-pdf package
+* Bug fixes for RTL and compiler
+
 === 22.10.2016 ===
 * Very very important for the mORMot: our ORM now works with -O1, -O2 and -O3 on i386 with Florian changes.
 * (compass #7) Better calculating "distance" for methods with default parameter.
