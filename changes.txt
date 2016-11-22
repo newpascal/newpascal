@@ -1,3 +1,7 @@
+=== 22.11.2016 ===
+* Cross-compiling from Windows to Darwin (thanks Alf!)
+* Generally small FPC fixes for assembler
+
 === 13.11.2016 ===
 * Optmizations for Inc/Dec/Succ/Pred
 * pas2jni updates
