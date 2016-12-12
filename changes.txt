@@ -1,3 +1,10 @@
+=== 12.12.2016 ===
+* (compass #7) Better calculating "distance" for methods with default parameter as official part of FPC trunk (r35089)
+* GetDynArrayProp/SetDynArrayProp in TypInfo
+* Many important bug fixes for generics (#30524, #30939, #30830, 30831, #31033, #30832, #30626, #31077)
+* Class helper with overloaded method name same as extending class (#30761)
+* Synchronized with mORMot git again
+
 === 22.11.2016 ===
 * Cross-compiling from Windows to Darwin (thanks Alf!)
 * Generally small FPC fixes for assembler
