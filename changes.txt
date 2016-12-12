@@ -4,6 +4,7 @@
 * Many important bug fixes for generics (#30524, #30939, #30830, 30831, #31033, #30832, #30626, #31077)
 * Class helper with overloaded method name same as extending class (#30761)
 * Synchronized with mORMot git again
+* New high DPI features in 1.7 for Lazarus
 
 === 22.11.2016 ===
 * Cross-compiling from Windows to Darwin (thanks Alf!)
