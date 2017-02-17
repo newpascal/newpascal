@@ -1,3 +1,11 @@
+=== 17.02.2017 ===
+* (compass #4) RTTI for interfaces as official part of FPC trunk 
+* Lazarus support for Management Operators (!)
+* Many bugfixes for Lazarus
+* Initial release of RTTI module for FPC
+* Many changes in RTTI layout for FPC (including most important change for "ManagedFldCount")
+* Many bugfixes for FPC (as always)
+
 === 12.12.2016 ===
 * (compass #7) Better calculating "distance" for methods with default parameter as official part of FPC trunk (r35089)
 * GetDynArrayProp/SetDynArrayProp in TypInfo
