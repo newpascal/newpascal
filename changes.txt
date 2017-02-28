@@ -1,3 +1,9 @@
+=== 28.02.2017 ===
+* (compass #6) !!! Management operators as official part of FPC trunk
+* Rename Copy management operator to AddRef and Clone to Copy
+* Important bugfix for global variables initialised three times
+* Lazarus bug fixes for high DPI
+
 === 17.02.2017 ===
 * (compass #4) RTTI for interfaces as official part of FPC trunk 
 * Lazarus support for Management Operators (!)
