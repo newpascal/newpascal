@@ -25,6 +25,9 @@ configuration:
   - Release
 
 environment:
+  APPVEYOR_RDP_PASSWORD:
+    secure: sfWumdEBETqbpMK6aVyw8w==
+  nodejs_version: "7"   
   BINW32_PATH: '%APPVEYOR_BUILD_FOLDER%\..\binw32'
   PPDIR: '%APPVEYOR_BUILD_FOLDER%\..\newpascal\fpc\bin\i386-win32'
   BINW32_DL: 'https://raw.githubusercontent.com/newpascal/npbuild/master/binw32.7z'
@@ -41,6 +44,11 @@ environment:
 #  - ps: iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
 install:
+  # Get the latest stable version of Node.js or io.js
+  - ps: Install-Product node $env:nodejs_version
+  # install modules
+  - npm install
+
   - rm appveyor.yml
   - npm install @octokit/rest
   - npm install download
@@ -75,7 +83,10 @@ build_script:
 after_build:
   - 7z a -tzip newpascal.zip %APPVEYOR_BUILD_FOLDER%\newpascal
 
-# debug rdp 
+#---------------------------------#
+#     debug (off)                 #
+#---------------------------------#
+
 #on_finish:
 #  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
 
