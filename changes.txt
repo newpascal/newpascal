@@ -1,3 +1,10 @@
+=== 07.05.2018 ===
+* It was long time since last update so the full list of changes is probably too long for mention :)
+* Many bug fixes and new features from FPC trunk
+* The most important related to project is significant update for Generics.Collections
+* (compass #4) clean up (there was some old unused anymore code)
+* Latest mORMot :)
+
 === 28.02.2017 ===
 * (compass #6) !!! Management operators as official part of FPC trunk
 * Rename Copy management operator to AddRef and Clone to Copy
