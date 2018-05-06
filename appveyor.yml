@@ -100,7 +100,7 @@ deploy:
   description: 'Release of NewPascal'
   provider: GitHub
   auth_token:
-    secure: 0zjNX5MmwwPNlCpgGKHe44W2flr5RdJm1uqe7poKPfnUDQYXzpgGOVPTU7pLVY0s
+    secure: KcYu4lP5AV4BYpPzpV2CQGucX7BpAsyRChrjOhZXH4z1DDtc5J0J6WvJ1hTr7VSI
   artifact: newpascal
   draft: true
   prerelease: false
