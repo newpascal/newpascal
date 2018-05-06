@@ -42,7 +42,7 @@ environment:
 
 install:
   - rm appveyor.yml
-  - npm install github
+  - npm install @octokit/rest
   - npm install download
   - npm install unzip
   - npm install concat-files
