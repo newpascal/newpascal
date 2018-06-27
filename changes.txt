@@ -1,3 +1,10 @@
+=== 27.06.2018 ===
+* Updates and bugfixes for Generics.Collections
+* New features for dynamic arrays (also more Delphi compatible)
+* Support for threadvars inside classes
+* Better modeswitches with on/off
+* Patches, fixes and some speed improvement
+
 === 07.05.2018 ===
 * It was long time since last update so the full list of changes is probably too long for mention :)
 * Many bug fixes and new features from FPC trunk
